@@ -8,7 +8,7 @@ function getApiKey(): string {
   if (process.env.ANTHROPIC_API_KEY) return process.env.ANTHROPIC_API_KEY;
   // Try 1Password — load service account token from file, pass explicitly to op
   try {
-    const saToken = execSync("cat /home/openclaw/.openclaw-dj/workspace/.op-service-account", { encoding: "utf8" }).trim();
+    const saToken = execSync("cat /home/openclaw/.openclaw-dj/projects/.op-service-account", { encoding: "utf8" }).trim();
     const key = execSync(
       `OP_SERVICE_ACCOUNT_TOKEN='${saToken}' op item get 'Anthropic API key' --vault OpenClaw --reveal --fields label=password`,
       { encoding: "utf8", shell: "/bin/bash" }

@@ -1,7 +1,7 @@
 #!/bin/bash
 # mem0 extraction runner — called by systemd timer
 set -e
-cd /home/openclaw/.openclaw-dj/workspace/mem0
+cd "${BASH_SOURCE%/*}"
 
 source /home/openclaw/.openclaw-dj/secrets.sh
 
